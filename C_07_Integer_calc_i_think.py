@@ -21,20 +21,18 @@ def int_check(question, low):
 
 # calculate how many bits are needed to represent an integer
 def integer_calc():
+    # Ask the user to enter an integer (more than / equal to 0)
+    integer = int_check("Integer: ",0)
 
-    width = int_check(question="Width: ", low=1)
-    print(width)
+    # convert the integer to binary and work out the number of bits needed
+    raw_binary = bin(integer)
 
-    height = int_check(question="Height: ", low=1)
-    print(height)
+    # remove the leading '0b' from the raw binary conversion
+    binary = raw_binary[2:]
+    num_bits = len(binary)
 
-    # Calculate the number of pixels, and then multiply them by 24 to get the number of bits
-    num_pixels = width * height
-    num_bits = num_pixels * 24
-
-    # set up answer and return it
-    answer = (f"Number of pixels:  {width} x {height} = {num_pixels}" 
-             f"\nNumber of bits: {num_pixels} x 24 = {num_bits}")
+    # Set up answer and return it
+    answer = f"{integer} in binary is {binary}. We need {num_bits} to represent it."
 
     return answer
 
