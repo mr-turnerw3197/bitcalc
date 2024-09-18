@@ -100,25 +100,24 @@ def integer_calc():
     answer = f"{integer} in binary is {binary}. We need {num_bits} to represent it."
 
     return answer
+
+
+# Calculate number of bits needed to represent text in ascii
 def calc_text_bits():
+    # Get text from user
+    response = input("Enter some text:  ")
 
-    # Calculate number of bits needed to represent text in ascii
+    # Calculate bits needed
+    num_chars = len(response)
+    num_bits = num_chars * 8
 
-    # Calculate number of bits needed to represent text in ascii
-    def calc_text_bits():
-        # Get text from user
-        response = input("Enter some text:  ")
+    # Set up answer and return it
+    answer = f"{response} has {num_chars} characters." \
+             f"\n we need {num_chars} x8 bits to represent it" \
+             f"\n which is {num_bits} bits"
 
-        # Calculate bits needed
-        num_chars = len(response)
-        num_bits = num_chars * 8
+    return answer
 
-        # Set up answer and return it
-        answer = f"{response} has {num_chars} characters." \
-                 f"\n we need {num_chars} x8 bits to represent it" \
-                 f"\n which is {num_bits} bits"
-
-        return answer
 
 # Main routine starts here
     statement_generator("Bit calculator for integers", "-")
@@ -151,6 +150,7 @@ while True:
         want_image = input("Press <enter> for an integer or any key image. ")
         if want_image == "":
             file_type = "integer"
+            print(f"You choose {file_type}")
         else:
             file_type = "image"
 
@@ -164,5 +164,5 @@ while True:
         text_ans = calc_text_bits()
         print(text_ans)
 
-    print(f"You choose {file_type}")
+
 
